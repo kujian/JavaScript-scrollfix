@@ -92,7 +92,7 @@ javascript scrollfix
                   <td>当isScroll为false时，需要设置右边对联广告，右下角弹出层等特殊情况时，重新设置resize后正确的left,top值</td>
             </tr></tbody></table>
 ## 演示
-new efix({id:'Jfixboxa',isScroll:true});
+<pre><code>new efix({id:'Jfixboxa',isScroll:true});</code></pre>
 
 <pre>
     new efix({
