@@ -2,9 +2,9 @@
 
 javascript scrollfix
 
-> JavaScript 版本的滚动固定插件，兼容ie6，支持滚动到某个位置停止在那里。具体作用见 http://github.com/kujian/scrollfix 
-> 作者：蔡宝坚 
-> 博客：http://caibaojian.com/
+1. JavaScript 版本的滚动固定插件，兼容ie6，支持滚动到某个位置停止在那里。具体作用见 http://github.com/kujian/scrollfix 
+2. 作者：蔡宝坚 
+3. 博客：http://caibaojian.com/
 
 ## 插件参数
 <table class="pars">
