@@ -1,4 +1,5 @@
 //by caibaojian 2015.10.13
+//url:http://caibaojian.com/
 //idea来自 efix插件
 //1.修复再次刷新重新定位浮动；2.支持滚动到某个位置结束浮动停在那里；3.兼容IE6
 var console = console|| {log:function(){return;}}
