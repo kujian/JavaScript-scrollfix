@@ -159,4 +159,22 @@ new efix({
 });
         </pre>
 
+增加一个fixChange方法，当页面内容改变时（增加元素或者减少元素时）触发这个动作，可以自适应浮动(设置了滚动浮动到某个元素时停止)。
+<pre>function scrollfixed(){
+	window.scrolltofixed = new efix({
+		id:'J-uploadBox',
+		isScroll:true,
+		limit:function (){
+			var fixboxa = document.getElementById('J-correlate_product_lib');
+        	var fixboxb = document.getElementById('J-uploadBox');
+        	var etop = this.getElementPosition(fixboxa).y;
+        	var aheight = fixboxb.offsetHeight;
+			return parseFloat(etop - aheight);
+		}
+	}); 
+}
+scrollfixed();</pre>
+调用方法：
+scrolltofixed.fixChange()
+
 演示见demo.html
