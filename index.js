@@ -1,6 +1,5 @@
 //by caibaojian 2015.10.13
-//url:http://caibaojian.com/
-//idea来自 efix插件
+//idea来自 http://zzsvn.pcauto.com.cn/svn/other/jslib/api/efix.html
 //1.修复再次刷新重新定位浮动；2.支持滚动到某个位置结束浮动停在那里；3.兼容IE6
 var console = console|| {log:function(){return;}}
 function efix(a) {
@@ -32,11 +31,11 @@ efix.prototype = {
 		}
 		this.setPosition();
 		var d = this.target.currentStyle ? this.target.currentStyle.position : getComputedStyle(this.target, null)["position"];
-		if (d == "static") {
+		//if (d == "static") {
 			this.addEvent(window, "resize", function() {
 				b.fixResize()
 			})
-		}
+		//}
 		if (this.config.isScroll) {
 			this.createCopyElement();
 			this.addEvent(window, "scroll", function() {
@@ -57,18 +56,27 @@ efix.prototype = {
             return { x: x, y: y };
     },
 	fixResize: function() {
-		if (this.saveWidth != document.documentElement.clientWidth || this.saveHeight != document.documentElement.clientHeight) {
-			if (this.config.isScroll) {
-				this.target.style.position = "static";
-				this.setPosition();
-				this.fixTimer = false;
-				this.fixScroll()
+		var self = this;
+		if (self.saveWidth != document.documentElement.clientWidth || self.saveHeight != document.documentElement.clientHeight) {
+			if (self.config.isScroll) {
+				self.target.style.position = "static";
+				self.setPosition();
+				self.fixTimer = false;
+				self.fixScroll()
 			} else {
-				this.config.onresize && this.config.onresize.apply(this)
+				self.config.onresize && self.config.onresize.apply(self)
 			}
 		}
-		this.saveWidth = document.documentElement.clientWidth;
-		this.saveHeight = document.documentElement.clientHeight
+		self.saveWidth = document.documentElement.clientWidth;
+		self.saveHeight = document.documentElement.clientHeight
+	},
+	fixChange:function() {
+		var self = this;
+		self.limit = self.getLimit();
+		self.target.style.position = "static";
+		self.setPosition();
+		self.fixTimer = false;
+		self.fixScroll()
 	},
 	setPosition: function() {
 		this.positionParent = this.target.offsetParent;
